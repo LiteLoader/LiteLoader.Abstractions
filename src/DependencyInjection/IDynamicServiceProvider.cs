@@ -1,11 +1,8 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 
 namespace LiteLoader.DependencyInjection
 {
-    public interface IDynamicServices : IServiceProvider
+    public interface IDynamicServiceProvider : IServiceProvider
     {
         /// <summary>
         /// Adds a service to this service provider
