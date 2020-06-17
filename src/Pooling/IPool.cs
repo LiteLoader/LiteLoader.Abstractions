@@ -3,19 +3,18 @@
     /// <summary>
     /// Provides a interface for pooling items
     /// </summary>
-    /// <typeparam name="T"></typeparam>
     public interface IPool<T>
     {
         /// <summary>
-        /// Get a pooled <see cref="T"/>
+        /// Gets a pooled item from this pool
         /// </summary>
-        /// <returns><see cref="T"/> object</returns>
+        /// <returns>Pooled Item</returns>
         T Get();
 
         /// <summary>
-        /// Returns a <see cref="T"/> back to the pool
+        /// Returns a item to the pool
         /// </summary>
-        /// <param name="item"><see cref="T"/> object</param>
+        /// <param name="item">The item to return</param>
         void Free(T item);
     }
 }
