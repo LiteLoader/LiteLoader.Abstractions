@@ -4,6 +4,11 @@ namespace LiteLoader.DependencyInjection
 {
     public static class ServiceExtension
     {
+        public static TService GetService<TService>(this IServiceProvider provider)
+        {
+            return (TService)provider.GetService(typeof(TService));
+        }
+
         public static void RemoveService<TService>(this IDynamicServiceProvider provider)
         {
             provider.RemoveService(typeof(TService));

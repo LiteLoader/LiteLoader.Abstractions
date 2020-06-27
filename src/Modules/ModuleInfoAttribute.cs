@@ -2,38 +2,38 @@
 using System.Linq;
 using System.Text.RegularExpressions;
 
-namespace LiteLoader.Plugins
+namespace LiteLoader.Modules
 {
     [AttributeUsage(AttributeTargets.Class)]
-    public class PluginInfoAttribute : Attribute
+    public class ModuleInfoAttribute : Attribute
     {
         /// <summary>
-        /// Human readable plugin name
+        /// Human readable module name
         /// </summary>
         public string Title { get; }
 
         /// <summary>
-        /// Author of the plugin
+        /// Author of the module
         /// </summary>
         public string Author { get; }
 
         /// <summary>
-        /// Version of the plugin
+        /// Version of the module
         /// </summary>
         public Version Version { get; }
 
         /// <summary>
-        /// Force the plugin loader to load this plugin on the game thread
+        /// Force the module loader to load this module on the game thread
         /// </summary>
         public bool ForceSyncronousLoad { get; set; } = false;
 
         /// <summary>
-        /// Defines plugin information
+        /// Defines module information
         /// </summary>
         /// <param name="title"><see cref="Title"/></param>
         /// <param name="author"><see cref="Author"/></param>
         /// <param name="version"><see cref="Version"/></param>
-        public PluginInfoAttribute(string title, string author, string version)
+        public ModuleInfoAttribute(string title, string author, string version)
         {
             Title = string.IsNullOrEmpty(title) ? throw new ArgumentNullException(nameof(title)) : title;
             Author = string.IsNullOrEmpty(author) ? throw new ArgumentNullException(nameof(author)) : author;
@@ -59,12 +59,12 @@ namespace LiteLoader.Plugins
         }
 
         /// <summary>
-        /// Defines plugin information
+        /// Defines module information
         /// </summary>
         /// <param name="title"><see cref="Title"/></param>
         /// <param name="author"><see cref="Author"/></param>
         /// <param name="version"><see cref="Version"/></param>
-        public PluginInfoAttribute(string title, string author, double version) : this(title, author, version.ToString("0.##"))
+        public ModuleInfoAttribute(string title, string author, double version) : this(title, author, version.ToString("0.##"))
         {
         }
     }
