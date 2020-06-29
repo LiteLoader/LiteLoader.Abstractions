@@ -5,27 +5,27 @@ using System.Text.RegularExpressions;
 namespace LiteLoader.Modules
 {
     [AttributeUsage(AttributeTargets.Class)]
-    public class ModuleInfoAttribute : Attribute
+    public sealed class ModuleInfoAttribute : Attribute
     {
-        /// <summary>
-        /// Human readable module name
-        /// </summary>
-        public string Title { get; }
-
         /// <summary>
         /// Author of the module
         /// </summary>
         public string Author { get; }
 
         /// <summary>
-        /// Version of the module
-        /// </summary>
-        public Version Version { get; }
-
-        /// <summary>
         /// Force the module loader to load this module on the game thread
         /// </summary>
         public bool ForceSyncronousLoad { get; set; } = false;
+
+        /// <summary>
+        /// Human readable module name
+        /// </summary>
+        public string Title { get; }
+
+        /// <summary>
+        /// Version of the module
+        /// </summary>
+        public Version Version { get; }
 
         /// <summary>
         /// Defines module information
@@ -35,12 +35,13 @@ namespace LiteLoader.Modules
         /// <param name="version"><see cref="Version"/></param>
         public ModuleInfoAttribute(string title, string author, string version)
         {
-            Title = string.IsNullOrEmpty(title) ? throw new ArgumentNullException(nameof(title)) : title;
-            Author = string.IsNullOrEmpty(author) ? throw new ArgumentNullException(nameof(author)) : author;
+            Title = string.IsNullOrEmpty(title) ? null : title;
+            Author = string.IsNullOrEmpty(author) ? null : author;
 
             if (string.IsNullOrEmpty(version))
             {
-                throw new ArgumentNullException(nameof(version));
+                version = null;
+                return;
             }
 
             string[] vSplit = version.Split(new char[] { '.' }, StringSplitOptions.RemoveEmptyEntries);

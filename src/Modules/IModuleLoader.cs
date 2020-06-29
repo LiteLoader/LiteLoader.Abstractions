@@ -18,17 +18,12 @@ namespace LiteLoader.Modules
         IEnumerable<string> UnloadedModules { get; }
 
         /// <summary>
-        /// Load a Module
+        /// Returns a instance of a loaded Module
         /// </summary>
+        /// <remarks>Should return null if Module is not loaded or is loading asyncronously</remarks>
         /// <param name="moduleName">The Module name</param>
-        /// <param name="immediately">Load the Module asyncronously</param>
-        void LoadModule(string moduleName, bool immediately = false);
-
-        /// <summary>
-        /// Unloads a Module
-        /// </summary>
-        /// <param name="moduleName">The Module name</param>
-        void UnloadModule(string moduleName);
+        /// <returns>The Module instance</returns>
+        IModule GetModule(string moduleName);
 
         /// <summary>
         /// Check if a Module is currently loaded
@@ -45,13 +40,16 @@ namespace LiteLoader.Modules
         bool IsModuleLoading(string moduleName);
 
         /// <summary>
-        /// Returns a instance of a loaded Module
+        /// Load a Module
         /// </summary>
-        /// <remarks>
-        /// Should return null if Module is not loaded or is loading asyncronously
-        /// </remarks>
         /// <param name="moduleName">The Module name</param>
-        /// <returns>The Module instance</returns>
-        IModule GetModule(string moduleName);
+        /// <param name="immediately">Load the Module asyncronously</param>
+        void LoadModule(string moduleName, bool immediately = false);
+
+        /// <summary>
+        /// Unloads a Module
+        /// </summary>
+        /// <param name="moduleName">The Module name</param>
+        void UnloadModule(string moduleName);
     }
 }

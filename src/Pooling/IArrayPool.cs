@@ -1,6 +1,4 @@
-﻿using System;
-
-namespace LiteLoader.Pooling
+﻿namespace LiteLoader.Pooling
 {
     /// <summary>
     /// Provides a interface for pooling arrays
@@ -10,7 +8,9 @@ namespace LiteLoader.Pooling
         /// <summary>
         /// Gets a array with zero length
         /// </summary>
+#pragma warning disable CA1819 // Properties should not return arrays
         T[] Empty { get; }
+#pragma warning restore CA1819 // Properties should not return arrays
 
         /// <summary>
         /// Get array from the pool

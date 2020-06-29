@@ -3,5 +3,5 @@
 namespace LiteLoader.DependencyInjection
 {
     [AttributeUsage(AttributeTargets.Constructor, AllowMultiple = false, Inherited = false)]
-    public class FactoryAttribute : Attribute { }
+    public sealed class FactoryAttribute : Attribute { }
 }
