@@ -23,6 +23,11 @@ namespace LiteLoader
         string ModuleDirectory { get; }
 
         /// <summary>
+        /// The temporary directory used by LiteLoader
+        /// </summary>
+        string TemporaryDirectory { get; }
+
+        /// <summary>
         /// The assembly name of the game module
         /// </summary>
         string GameModule { get; }
