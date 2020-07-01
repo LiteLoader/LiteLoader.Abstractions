@@ -1,4 +1,5 @@
 ﻿using LiteLoader.DependencyInjection;
+using LiteLoader.Logging;
 using System.Threading;
 
 namespace LiteLoader
@@ -26,6 +27,11 @@ namespace LiteLoader
         /// The temporary directory used by LiteLoader
         /// </summary>
         string TemporaryDirectory { get; }
+
+        /// <summary>
+        /// The log level defined by the user
+        /// </summary>
+        LogLevel LogLevel { get; }
 
         /// <summary>
         /// The assembly name of the game module
