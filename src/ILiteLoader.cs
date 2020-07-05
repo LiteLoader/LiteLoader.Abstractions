@@ -47,6 +47,11 @@ namespace LiteLoader
         /// </summary>
         IDynamicServiceProvider ServiceProvider { get; }
 
+        /// <summary>
+        /// The main logger for the framework
+        /// </summary>
+        ILogger RootLogger { get; }
+
         #endregion
 
         #region Cleanup

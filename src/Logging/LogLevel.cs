@@ -9,7 +9,7 @@ namespace LiteLoader.Logging
     public enum LogLevel
     {
         /// <summary>
-        /// Show no log messages
+        /// Disables logging
         /// </summary>
         None = 0,
 
@@ -34,12 +34,12 @@ namespace LiteLoader.Logging
         Debug = 8,
 
         /// <summary>
-        /// Shows informational and warning messages
+        /// Production logging level
         /// </summary>
         Production = Information | Warning,
 
         /// <summary>
-        /// Shows all messages passed into the logger
+        /// Develop logging level
         /// </summary>
         Development = Production | Error | Debug
     }
